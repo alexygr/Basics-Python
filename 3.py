@@ -1,8 +1,4 @@
-#x = 0
-#sum = 0
-while x < 1 or x > 9:
-    x = int(input('Введите число от 1 до 9 : '))
-while x > 0:
-    sum += x
-    x -= 1
-print (sum)
+n = ''
+while  not n.isnumeric():
+    n = input("Введите положителное целое число : ")
+print(f"{n} + {n * 2} + {n * 3} = {int(n) + int(n * 2) + int(n * 3)}")
