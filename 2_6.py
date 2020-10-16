@@ -1,26 +1,37 @@
-from typing import Dict, Any, Union, Tuple
+count = 0
+analize = {}
+stuf = []
+while True:
 
-count = 3
-analiz = {}
+    print("1 - Добавить товар\n"
+          "2 - Вывести анализ\n"
+          "3 - Выйти из програмы")
 
-stuf = [
-    (1, {"название": "компьютер", "цена": 20000, "количество": 5, "eд": "шт."}),
-    (2, {"название": "принтер", "цена": 6000, "количество": 2, "eд": "шт."}),
-    (3, {"название": "сканер", "цена": 2000, "количество": 7, "eд": "шт."})
-]
-commodity = dict(название="клавиатура", цена=500, количество=4, ед="шт")
-count += 1
-set_commdity = (count, commodity)
-stuf.append(set_commdity)
+    switch = input(": = >")
+    if switch == '1':
+        name = input("Введите имя товара")
+        price = float(input("Введите цену товара"))
+        quantity = int(input("Введите количество товара"))
+        unit = input("Введите единицу измерения")
 
-i = 0
-for key in stuf[0][1].keys():
-    name = []
-    for i in range(len(stuf)):
-        name.append(stuf[i][1].get(key))
-    tmpdict = {key: name}
-    analiz.update(tmpdict)
+        commodity = {"название": name, "цена": price, "количество": quantity, "eд": unit}
+        count += 1
+        set_commodity = (count, commodity)
+        stuf.append(set_commodity)
+        for el in stuf:
+            print(el)
+    elif switch == '2':
+        for key in stuf[0][1].keys():
+            name = []
+            for i in range(len(stuf)):
+                name.append(stuf[i][1].get(key))
+            tmpdict = {key: name}
+            analize.update(tmpdict)
 
-print(analiz)
+        for key, value in analize.items():
+            print(f"{key}: {value}")
 
-
+    elif switch == '3':
+        break
+    else:
+        print("Неверный ввод")
