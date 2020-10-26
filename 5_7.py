@@ -16,6 +16,6 @@ dict_avr = {"average_profit": int(my_sum/count)}
 data = [dict_comp, dict_avr]
 print(data)
 with open("text7_1.json", "w", encoding="utf-8") as file_obj:
-    json.dump(data, file_obj)
-json_obj = json.dumps(data)
+    json.dump(data, file_obj, indent=4, ensure_ascii=False)
+json_obj = json.dumps(data, indent=4, ensure_ascii=False)
 print(json_obj)
